@@ -1,0 +1,603 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="云里物理">
+  <meta name="keywords" content="">
+  <meta name="description" content="EasyX入门篇EasyX在学习C语言时，很多同学抱怨说C只能写最简单的Demo程序，通过printf在屏幕上打印字符来验证代码。这样的编程很枯燥，一点没觉得自己在设计软件。 EasyX是针对C++的第三方图形库，通过它我们能够在屏幕上绘制出自己喜欢的各种颜色的图形。有了它，自己编写好玩的小游戏不是梦哦。 使用EasyX有下面几点要求： 只能在Windows下使用建议使用Visual Studio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="EasyX入门篇">
+<meta property="og:url" content="http://example.com/2021/12/19/EasyX%E5%85%A5%E9%97%A8%E7%AF%87/index.html">
+<meta property="og:site_name" content="云里物理の小窝">
+<meta property="og:description" content="EasyX入门篇EasyX在学习C语言时，很多同学抱怨说C只能写最简单的Demo程序，通过printf在屏幕上打印字符来验证代码。这样的编程很枯燥，一点没觉得自己在设计软件。 EasyX是针对C++的第三方图形库，通过它我们能够在屏幕上绘制出自己喜欢的各种颜色的图形。有了它，自己编写好玩的小游戏不是梦哦。 使用EasyX有下面几点要求： 只能在Windows下使用建议使用Visual Studio">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xNDU5MDItZGZmZDJjZjQ2Mzc3MjU3Ny5wbmc?x-oss-process=image/format,png">
+<meta property="og:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xNDU5MDItZjk4NDE4NmJkNWViZDgxYi5wbmc?x-oss-process=image/format,png">
+<meta property="article:published_time" content="2021-12-19T09:14:01.000Z">
+<meta property="article:modified_time" content="2022-07-11T13:53:52.823Z">
+<meta property="article:author" content="云里物理">
+<meta property="article:tag" content="EasyX">
+<meta property="article:tag" content="C++">
+<meta property="article:tag" content="花里胡哨">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xNDU5MDItZGZmZDJjZjQ2Mzc3MjU3Ny5wbmc?x-oss-process=image/format,png">
+  
+  <title>EasyX入门篇 - 云里物理の小窝</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+  
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.12","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname"}},"search_path":"/local-search.xml"};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>云里物理の小窝</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              &nbsp;<i class="iconfont icon-search"></i>&nbsp;
+            </a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('https://pic.imgdb.cn/item/62c579525be16ec74a579b15.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="EasyX入门篇">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-12-19 09:14" pubdate>
+        2021年12月19日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      9 分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">EasyX入门篇</h1>
+            
+            <div class="markdown-body">
+              <h1 id="EasyX入门篇"><a href="#EasyX入门篇" class="headerlink" title="EasyX入门篇"></a>EasyX入门篇</h1><p>EasyX<br>在学习C语言时，很多同学抱怨说C只能写最简单的Demo程序，通过printf在屏幕上打印字符来验证代码。这样的编程很枯燥，一点没觉得自己在设计软件。</p>
+<p>EasyX是针对C++的第三方图形库，通过它我们能够在屏幕上绘制出自己喜欢的各种颜色的图形。有了它，自己编写好玩的小游戏不是梦哦。</p>
+<p>使用EasyX有下面几点要求：</p>
+<p>只能在Windows下使用<br>建议使用Visual Studio作为IDE<br>必须写C++代码（文件后缀名为cpp）</p>
+<h2 id="EasyX安装"><a href="#EasyX安装" class="headerlink" title="EasyX安装"></a>EasyX安装</h2><h4 id="下载路径"><a href="#下载路径" class="headerlink" title="下载路径"></a>下载路径</h4><p><a target="_blank" rel="noopener" href="https://easyx.cn/downloads/">download</a></p>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><p>解压下载目录 EasyX_20151015(beta).zip 如下：</p>
+<p>双击 setup.hta 文件</p>
+<p>找到需要的VS版本点击安装即可。</p>
+<p>PS：在解压缩的文件中，有个EasyX_help.chm文件，它是EasyX的文档，所有API的介绍都在里面。</p>
+<p>作为一个软件开发人员，阅读文档是最基本的技能，希望大家从现在开始培养自己这方面的能力。如果你通读了这个文档之后，相信你完全能够自己完成在屏幕上画出自己想要的图案。</p>
+<h2 id="EasyX基本API"><a href="#EasyX基本API" class="headerlink" title="EasyX基本API"></a>EasyX基本API</h2><p>在EasyX的文档中，有一节是“超简单的使用预览”，里面有这样一段代码。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;graphics.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;conio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">initgraph</span>(<span class="hljs-number">640</span>, <span class="hljs-number">480</span>);   <span class="hljs-comment">// 创建图形界面</span><br>    <span class="hljs-built_in">circle</span>(<span class="hljs-number">200</span>, <span class="hljs-number">200</span>, <span class="hljs-number">100</span>); <span class="hljs-comment">// 画圆，圆心(200, 200)，半径 100</span><br>    <span class="hljs-built_in">getch</span>();               <span class="hljs-comment">// 按任意键继续</span><br>    <span class="hljs-built_in">closegraph</span>();          <span class="hljs-comment">// 关闭图形界面</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这段代码的执行结果如下：</p>
+<p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xNDU5MDItZGZmZDJjZjQ2Mzc3MjU3Ny5wbmc?x-oss-process=image/format,png" srcset="/img/loading.gif" lazyload></p>
+<p>语法</p>
+<ol>
+<li><h4 id="画布的创建和销毁"><a href="#画布的创建和销毁" class="headerlink" title="画布的创建和销毁"></a>画布的创建和销毁</h4></li>
+</ol>
+<p>  main函数中，第一行和最后一行代码是创建和删除图形界面，这个图形界面常常被叫做“画布”。</p>
+<p>initgraph()<br>创建画布时，需要输入目标窗口的长宽值。</p>
+<p>closegraph()<br>和C语言中一样，C++也强调代码的对称性，申请资源和释放资源的代码总是成对出现的。</p>
+<ol start="2">
+<li><h4 id="坐标系"><a href="#坐标系" class="headerlink" title="坐标系"></a>坐标系</h4></li>
+</ol>
+<p>  在 EasyX 中，坐标分为：逻辑坐标和物理坐标。</p>
+<p>我们这里只介绍逻辑坐标。</p>
+<p>逻辑坐标是在程序中用于绘图的坐标体系。</p>
+<p>坐标默认的原点在屏幕的左上角，X 轴向右为正，Y 轴向下为正，度量单位是象素。</p>
+<p>坐标的原点，方向和单位都可以通过特定函数修改。我们一般只采用默认设置。</p>
+<ol start="3">
+<li><h4 id="圆形绘制"><a href="#圆形绘制" class="headerlink" title="圆形绘制"></a>圆形绘制</h4></li>
+</ol>
+<h4 id="circle这个函数用于画圆。"><a href="#circle这个函数用于画圆。" class="headerlink" title="circle这个函数用于画圆。"></a>circle这个函数用于画圆。</h4><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">circle</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> x,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> y,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> radius</span></span><br><span class="hljs-params"><span class="hljs-function">)</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>参数：<br>x<br>圆的圆心 x 坐标。<br>y<br>圆的圆心 y 坐标。<br>radius<br>圆的半径。<br>Demo程序中就是用这个函数绘制了一个圆心为（200, 200），半径为100的圆形。</p>
+<ol start="4">
+<li><h4 id="直线绘制"><a href="#直线绘制" class="headerlink" title="直线绘制"></a>直线绘制</h4></li>
+</ol>
+<p>  这个函数用于画线。还可以用 linerel 和 lineto 画线。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">line</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> x1,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> y1,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> x2,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> y2</span></span><br><span class="hljs-params"><span class="hljs-function">)</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>参数<br>x1<br>线的起始点的 x 坐标。</p>
+<p>y1<br>线的起始点的 y 坐标。</p>
+<p>x2<br>线的终止点的 x 坐标。</p>
+<p>y2<br>线的终止点的 y 坐标。</p>
+<ol start="5">
+<li><h4 id="矩形绘制"><a href="#矩形绘制" class="headerlink" title="矩形绘制"></a>矩形绘制</h4></li>
+</ol>
+<p>  这个函数用于画空心矩形。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">rectangle</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> left,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> top,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> right,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> bottom</span></span><br><span class="hljs-params"><span class="hljs-function">)</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>参数<br>left<br>矩形左部 x 坐标。</p>
+<p>top<br>矩形上部 y 坐标。</p>
+<p>right<br>矩形右部 x 坐标。</p>
+<p>bottom<br>矩形下部 y 坐标。</p>
+<ol start="6">
+<li><h4 id="椭圆绘制"><a href="#椭圆绘制" class="headerlink" title="椭圆绘制"></a>椭圆绘制</h4></li>
+</ol>
+<p>  这个函数用于画椭圆。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">ellipse</span><span class="hljs-params">(</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> left,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> top,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> right,</span></span><br><span class="hljs-params"><span class="hljs-function"><span class="hljs-keyword">int</span> bottom</span></span><br><span class="hljs-params"><span class="hljs-function">)</span></span>;<br></code></pre></td></tr></table></figure>
+
+<p>参数<br>left<br>椭圆外切矩形的左上角 x 坐标。</p>
+<p>top<br>椭圆外切矩形的左上角 y 坐标。</p>
+<p>righ椭圆外切矩形的右下角 x 坐标。</p>
+<p>bottom<br>椭圆外切矩形的右下角 y 坐标。</p>
+<p>上面是几个基本图形的绘制方法，它们有个特点是画出的都是空心的图形。与之对应的是一组绘制带有填充颜色图形的接口。</p>
+<p>fillcircle(), fillellipse(), fillrectangle()<br>它们的参数和画空心的接口完全一样，只不过使用前需要调用下面这个接口设置填充颜色。</p>
+<p>setfillcolor()<br>下面我们来看看这些函数究竟能做什么。</p>
+<h2 id="EasyX实战"><a href="#EasyX实战" class="headerlink" title="EasyX实战"></a>EasyX实战</h2><p><img src="https://imgconvert.csdnimg.cn/aHR0cHM6Ly91cGxvYWQtaW1hZ2VzLmppYW5zaHUuaW8vdXBsb2FkX2ltYWdlcy8xNDU5MDItZjk4NDE4NmJkNWViZDgxYi5wbmc?x-oss-process=image/format,png" srcset="/img/loading.gif" lazyload></p>
+<p>上面这幅图就是用EasyX实现的。哈哈，貌似有点丑， 不过假如你能独立写出这个功能，说明你已经基本掌握了EasyX的用法。</p>
+<p>提供一个代码框架：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;graphics.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">initgraph</span>(<span class="hljs-number">800</span>, <span class="hljs-number">600</span>);<br><br>    <span class="hljs-comment">// Add your code</span><br><br>    <span class="hljs-built_in">closegraph</span>(); <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>这里请先自己思考一下，不要急往下看。</p>
+<p>（… 15分钟过去了 …）<br>分析<br>这幅图主要是由圆形、椭圆形、矩形和直线组成的，这几个形状的API我们都已经介绍过了。我们只要按顺序把它们画在屏幕上就好了。</p>
+<p>代码实现<br>在C++工程的main.cpp文件中输入下面代码。</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><code class="hljs c++"><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;iostream&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;graphics.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-meta-keyword">include</span> <span class="hljs-meta-string">&lt;conio.h&gt;</span></span><br><br><span class="hljs-function"><span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">()</span></span><br><span class="hljs-function"></span>&#123;<br>    <span class="hljs-built_in">initgraph</span>(<span class="hljs-number">800</span>, <span class="hljs-number">600</span>);<br><br>    <span class="hljs-comment">// 记录当前填充颜色</span><br>    COLORREF save_color = <span class="hljs-built_in">getfillcolor</span>();<br><br>    <span class="hljs-comment">// 绘制矩形框</span><br>    <span class="hljs-built_in">rectangle</span>(<span class="hljs-number">50</span>, <span class="hljs-number">50</span>, <span class="hljs-number">550</span>, <span class="hljs-number">550</span>);<br><br>    <span class="hljs-comment">// 画空心圆</span><br>    <span class="hljs-built_in">circle</span>(<span class="hljs-number">200</span>, <span class="hljs-number">150</span>, <span class="hljs-number">50</span>);<br>    <span class="hljs-built_in">circle</span>(<span class="hljs-number">400</span>, <span class="hljs-number">150</span>, <span class="hljs-number">50</span>);<br><br>    <span class="hljs-comment">// 画空心椭圆    </span><br>    <span class="hljs-built_in">ellipse</span>(<span class="hljs-number">100</span>, <span class="hljs-number">100</span>, <span class="hljs-number">500</span>, <span class="hljs-number">300</span>);<br><br>    <span class="hljs-comment">// 填充椭圆内的绿色部分</span><br>    <span class="hljs-built_in">setfillcolor</span>(GREEN);<br>    <span class="hljs-built_in">floodfill</span>(<span class="hljs-number">300</span>, <span class="hljs-number">200</span>, <span class="hljs-built_in">getlinecolor</span>());<br><br>    <span class="hljs-comment">// 填充一个白色的椭圆</span><br>    <span class="hljs-built_in">setfillcolor</span>(WHITE);<br>    <span class="hljs-built_in">fillellipse</span>(<span class="hljs-number">200</span>, <span class="hljs-number">210</span>, <span class="hljs-number">400</span>, <span class="hljs-number">290</span>);<br><br>    <span class="hljs-comment">// 填充一个绿色的矩形</span><br>    <span class="hljs-built_in">setfillcolor</span>(GREEN);<br>    <span class="hljs-built_in">fillrectangle</span>(<span class="hljs-number">150</span>, <span class="hljs-number">300</span>, <span class="hljs-number">450</span>, <span class="hljs-number">500</span>);<br><br>    <span class="hljs-comment">// 画一条直线</span><br>    <span class="hljs-built_in">line</span>(<span class="hljs-number">300</span>, <span class="hljs-number">500</span>, <span class="hljs-number">300</span>, <span class="hljs-number">550</span>);<br><br>    <span class="hljs-comment">// 按任意键继续</span><br>    <span class="hljs-built_in">getch</span>();<br><br>    <span class="hljs-comment">// 恢复填充颜色</span><br>    <span class="hljs-built_in">setfillcolor</span>(save_color);<br><br>    <span class="hljs-built_in">closegraph</span>(); <br>&#125;<br></code></pre></td></tr></table></figure>
+
+<p>好了，按一下Ctrl + F5，是不是看到效果了？</p>
+<p>对大多数人来说，椭圆内部的不规则的绿色面积应该是最难实现的，floodfill()这个函数就是帮助我们将一个点所在的封闭范围内全部用填充颜色涂掉。除了设置点坐标之外还要输入这个封闭区域边框的颜色。</p>
+<p>这里需要强调的是，在初始化画布之后，我们获取了当前的填充颜色，在绘制完成后又把当前填充颜色恢复到了我们程序执行之前的状态。</p>
+<p>这个习惯非常重要，就是要让我们的程序在运行过之后，系统环境没有任何变化。否则在未来负责的工程中，很可能因为某个模块乱改系统设置产生很多不必要的bug。</p>
+<p>好了，现在是不是比较有成就感呢？</p>
+<p>由于EasyX的使用会贯穿于我们这个系列的项目中，因此这里就不过多介绍了，后面用到了新内容我们再讲。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/%E8%AF%AD%E8%A8%80%E7%BC%96%E7%A8%8B/">语言编程</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/EasyX/">EasyX</a>
+                    
+                      <a class="hover-with-bg" href="/tags/C/">C++</a>
+                    
+                      <a class="hover-with-bg" href="/tags/%E8%8A%B1%E9%87%8C%E8%83%A1%E5%93%A8/">花里胡哨</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">
+                  
+                    本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！
+                  
+                </p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2022/07/03/%E4%BF%A1%E6%81%AF%E5%A5%A5%E8%B5%9B-%E9%80%92%E5%BD%92/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">信息奥赛-递归</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments" lazyload>
+                
+                  
+                
+                
+  <div id="lv-container" data-id="city" data-uid="MTAyMC81Njc3Mi8zMzIzNg==">
+    <script type="text/javascript">
+      Fluid.utils.loadComments('#lv-container', function() {
+        Fluid.utils.createScript('https://cdn-city.livere.com/js/embed.dist.js');
+      });
+    </script>
+    <noscript>Please enable JavaScript to view the comments</noscript>
+  </div>
+
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+  </div>
+  
+  <div class="statistics">
+    
+    
+
+    
+      
+        <!-- 不蒜子统计PV -->
+        <span id="busuanzi_container_site_pv" style="display: none">
+            总访问量 
+            <span id="busuanzi_value_site_pv"></span>
+             次
+          </span>
+      
+      
+        <!-- 不蒜子统计UV -->
+        <span id="busuanzi_container_site_uv" style="display: none">
+            总访客数 
+            <span id="busuanzi_value_site_uv"></span>
+             人
+          </span>
+      
+    
+  </div>
+
+
+  
+
+  
+</footer>
+
+
+  <!-- SCRIPTS -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  
+    <script  src="https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js" ></script>
+  
+  
+    <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js" ></script>
+  
+  
+    <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js" ></script>
+  
+
+
+
+  <script defer src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" ></script>
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+<script src="/live2dw/lib/L2Dwidget.min.js?094cbace49a39548bed64abff5988b05"></script><script>L2Dwidget.init({"pluginRootPath":"live2dw/","pluginJsPath":"lib/","pluginModelPath":"assets/","tagMode":false,"debug":false,"model":{"jsonPath":"/live2dw/assets/shizuku.model.json"},"display":{"position":"right","width":150,"height":300},"mobile":{"show":true},"log":false});</script></body>
+</html>
